@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  nbd0524:
+    container_name: nbd0524-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nbd0524-api:latest
+    ports:
+      - '8080:8080'
+    environment:
+      - JAVA_OPTS=-Xms512m -Xmx1024m -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv6Addresses=false
+    restart: unless-stopped
+    networks:
+      - local-network
+
+networks:
+  local-network:
+    name: local-network
+    driver: bridge

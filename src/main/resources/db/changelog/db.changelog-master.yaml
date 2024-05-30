@@ -1,0 +1,6 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/init-db.sql
+  - include:
+      file: db/changelog/scripts/changelog-001-dml.sql
+
